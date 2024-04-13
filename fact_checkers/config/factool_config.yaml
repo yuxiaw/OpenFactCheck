@@ -1,0 +1,31 @@
+global_config:
+  openai_key:
+    value: xxx
+    env_name: OPENAI_API_KEY
+  serper_key:
+    value: xxx
+    env_name: SERPER_API_KEY
+  scraper_key:
+    value: xxx
+    env_name: SCRAPER_API_KEY
+  llm_in_use:
+    value: gpt-4
+solvers:
+  all_pass_abstain_detector:
+    input_name: response
+    output_name: response
+  factool_decontextualizer:
+    input_name: response
+    output_name: claims
+  factool_evidence_retriever:
+    input_name: claims
+    output_name: evidences
+  factool_claim_examiner:
+    input_name: evidences
+    output_name: claim_info
+  factool_post_editor:
+    input_name: claim_info
+    output_name: claim_info
+  concat_response_generator:
+    input_name: claim_info
+    output_name: output

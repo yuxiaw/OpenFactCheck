@@ -1,0 +1,34 @@
+global_config:
+  chatgpt_model:
+    value: text-davinci-003
+solvers:
+  spacy_response_decomposer:
+    spacy_model: en_core_web_sm
+    input_name: response
+    output_name: sentences
+  chatgpt_decontextualizer:
+    input_name: sentences
+    output_name: claims_with_context
+  rarr_question_generator:
+    input_name: claims_with_context
+    output_name: claims_with_questions
+    model: text-davinci-003
+    temperature_qgen: 0.7
+    num_rounds_qgen: 3
+  search_engine_retriever:
+    input_name: claims_with_questions
+    output_name: claims_with_evidences
+    max_search_results_per_query: 5
+    max_sentences_per_passage: 4
+    sliding_distance: 1
+    max_passages_per_search_result: 1
+  rarr_editor:
+    input_name: claims_with_evidences
+    output_name: revised_claims
+    model: text-davinci-003
+    max_evidences_per_question: 1
+    max_edit_ratio: 100
+    output_claim_only: true
+  rarr_concat_response_generator:
+    input_name: revised_claims
+    output_name: output

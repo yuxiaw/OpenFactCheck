@@ -1,0 +1,70 @@
+global_config:
+  openai_api:
+    value: xxx
+    env_name: OPENAI_API_KEY
+  azure_search_key:
+    value: xxx
+    env_name: AZURE_SEARCH_KEY
+  serper_api_key:
+    value: xxx
+    env_name: SERPER_API_KEY
+  factcheck_gpt_model: gpt-3.5-turbo
+  rarr_model: gpt-3.5-turbo-instruct
+  factool_gpt_model: gpt-3.5-turbo
+  num_retries: 3
+solvers:
+  factool_claim_processor:
+    input_name: response
+    output_name: claims
+  factool_retriever:
+    input_name: claims
+    output_name: claims_with_evidences
+    snippet_cnt: 10
+  factool_verifier:
+    input_name: claims_with_evidences
+    output_name: label
+all_available_solvers:
+  factcheck_gpt_claim_processor:
+    input_name: response
+    output_name: claims
+    mode: independent_sentences
+    rule_based_method: spacy
+    spacy_model: en_core_web_sm
+  factcheck_gpt_retriever:
+    input_name: claims
+    output_name: claims_with_evidences
+    n_questions: 1
+    question_gen_round: 1
+    qgen_temp: 0.7
+    search_timeout: 10
+    max_search_results_per_query: 2
+    max_passages_per_search_result_to_return: 3
+    sentences_per_passage: 5
+    max_passages_per_question: 5
+    max_aggregated_evidences: 5
+  factcheck_gpt_verifier:
+    input_name: claims_with_evidences
+    output_name: label
+    stance_model: gpt-3.5-turbo-0613
+    verify_retries: 3
+  rarr_retriever:
+    input_name: claims
+    output_name: claims_with_evidences
+    max_search_results_per_query: 5
+    max_sentences_per_passage: 4
+    sliding_distance: 1
+    max_passages_per_search_result: 1
+  rarr_verifier:
+    input_name: claims_with_evidences
+    output_name: label
+    max_evidences_per_question: 1
+  factool_claim_processor:
+    input_name: response
+    output_name: claims
+  factool_retriever:
+    input_name: claims
+    output_name: claims_with_evidences
+    snippet_cnt: 10
+  factool_verifier:
+    input_name: claims_with_evidences
+    output_name: label

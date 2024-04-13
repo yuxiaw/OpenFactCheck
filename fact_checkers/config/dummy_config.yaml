@@ -1,0 +1,20 @@
+global_config:
+  openai_key:
+    value: xxxx
+    env_name: OPENAI_API_KEY
+solvers:
+  fake_claim_extractor:
+    input_name: response
+    output_name: claims
+    max_claims: 3
+    min_claims: 2
+  ignorant_search_engine_retriever:
+    input_name: claims
+    output_name: claims_with_evidences
+    max_num_documents: 5
+  confused_claim_examiner:
+    input_name: claims_with_evidences
+    output_name: claims_with_tags
+  useless_response_regenerator:
+    input_name: claims_with_tags
+    output_name: output

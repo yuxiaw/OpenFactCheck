@@ -1,0 +1,34 @@
+global_config:
+  openai_api:
+    value: xxx
+    env_name: OPENAI_API_KEY
+  model: gpt-3.5-turbo
+  num_retries: 3
+solvers:
+  text_decomposer:
+    input_name: response
+    output_name: claims
+    mode: independent_sentences
+    rule_based_method: spacy
+    spacy_model: en_core_web_sm
+  checkworthiness_filter:
+    input_name: claims
+    output_name: claims
+    spacy_model: en_core_web_sm
+  retriever:
+    input_name: claims
+    output_name: claims_with_evidences
+    n_questions: 1
+    question_gen_round: 1
+    qgen_temp: 0.7
+    search_timeout: 10
+    max_search_results_per_query: 2
+    max_passages_per_search_result_to_return: 3
+    sentences_per_passage: 5
+    max_passages_per_question: 5
+    max_aggregated_evidences: 5
+  verifier:
+    input_name: claims_with_evidences
+    output_name: output
+    stance_model: gpt-3.5-turbo-0613
+    verify_retries: 3
