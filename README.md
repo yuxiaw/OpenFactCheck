@@ -1,7 +1,7 @@
 ## OpenFactCheck: An Open-source Factuality Evaluation Demo for LLMs
 
 <p align="center"> 
-<img src="figs/demo.png" width="300"/>
+<img src="figs/project_overview.png"/>
  </p>
 
 
