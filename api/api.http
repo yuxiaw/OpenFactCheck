@@ -1,0 +1,69 @@
+# The following is a list of all the possible variables that can be used in the
+# configuration file.  The values are the default values.
+@hostname = http://127.0.0.1:8976
+@host = {{hostname}}
+
+# Test Health
+GET {{host}}/health
+###
+
+# Test Pipeline Configuration
+GET {{host}}/pipeline/configuration
+###
+
+# Test List solvers
+GET {{host}}/pipeline/solver
+###
+
+# Test List solvers for claim processors
+GET {{host}}/pipeline/solver/claimprocessor
+###
+
+# Test List solvers for retrievers
+GET {{host}}/pipeline/solver/retriever
+###
+
+# Test List solvers for verifiers
+GET {{host}}/pipeline/solver/verifier
+###
+
+# Prepare Pipeline
+POST {{host}}/pipeline/configure
+Content-Type: application/json
+
+{
+  "factcheck_gpt_claim_processor": {
+    "input_name": "response",
+    "output_name": "claims",
+    "mode": "independent_sentences",
+    "rule_based_method": "spacy",
+    "spacy_model": "en_core_web_sm"
+  },
+  "rarr_retriever": {
+    "input_name": "claims",
+    "output_name": "claims_with_evidences",
+    "max_search_results_per_query": 5,
+    "max_sentences_per_passage": 4,
+    "sliding_distance": 1,
+    "max_passages_per_search_result": 1
+  },
+  "rarr_verifier": {
+    "input_name": "claims_with_evidences",
+    "output_name": "label",
+    "max_evidences_per_question": 1
+  }
+}
+###
+
+# Test Check Factuality
+POST {{host}}/evaluate/response
+Content-Type: application/json
+
+{
+  "text": "This is a test claim."
+}
+###
+
+# Test Check Factuality of LLM
+POST {{host}}/evaluate/llm/123
+###

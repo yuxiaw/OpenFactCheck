@@ -1,0 +1,13 @@
+{
+    "pipeline": {
+        "config_path": "../fact_checkers/config/web_service_config.yaml",
+        "solvers_path": "../fact_checkers/solvers/web_service_solvers/",
+        "output_path": "./output"
+    },
+    "llm": {
+        "evaluator_path": "../eval_llm/process.sh"
+    },
+    "factchecker": {
+        "evaluator_path": "../eval_factchecker/process.sh"
+    }
+}

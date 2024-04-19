@@ -92,7 +92,7 @@ In summary, through manipulating the config file, you can create your own piplin
 
 
 ## Extending This Framework
-For developers who want to replace some of the solvers with your own modules or build an entire new pipline, we provide a simple tutorial of developing a simple dummy pipeline. All the codes of the tutorial are placed at the example folder.
+For developers who want to replace some of the solvers with your own modules or build an entire new pipline, we provide a simple tutorial of developing a simple dummy pipeline. All the codes of the tutorial are placed at the `solvers` folder.
 
 In general, there are 5 things you need to do to develop your own fact-checking pipeline.
 1. Understand what sub-tasks your pipeline contains.
@@ -113,7 +113,7 @@ Since we are trying to build a dummy pipeline, we don't really need it to be use
    - We re-construct a response where counter-factual information are corrected.
 
 ### Step 3 & 4
-Please see ```./example/dummy_solvers``` for the implementation of these solvers, and the config file used by them.
+Please see ```./solvers/dummy_solvers``` for the implementation of these solvers, and the config file used by them.
 
 ### Step 5
 To run the code, you can use both the library way or the command line way. Here we show the library way:
@@ -122,8 +122,8 @@ from pipeline import Pipeline
 from argparse import Namespace
 
 args = Namespace(
-    user_src='./example/dummy_solvers',
-    config='./example/dummy_config.yaml',
+    user_src='./solvers/dummy_solvers',
+    config='./solvers/dummy_config.yaml',
     output='./truth'
 )
 p = Pipeline(args)

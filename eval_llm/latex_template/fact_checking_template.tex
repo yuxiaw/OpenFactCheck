@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[a4paper, total={7in, 8in}]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{float}
+\title{Factuality Evaluation Report for {{model_name}}}
+\author{OpenFactChecking}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% \section{}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{free_style_response_barchart.pdf}
+    \caption{Free-style Response Evaluation Result}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{selfaware_cm.pdf}
+    \caption{Confusion Matrix on SelfAware Dataset}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{selfaware_performance.pdf}
+    \caption{Performance on SelfAware Dataset}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{freshqa_piechart.pdf}
+    \caption{Proportion of True and False answers on FreshQA Dataset}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.88\textwidth]{snowballing_acc.pdf}
+    \caption{Accuracy on Snowballing Dataset}
+\end{figure}
+
+\end{document}
