@@ -1,6 +1,6 @@
 global_config:
-  openai_api:
-    value: xxx
+  openai_key:
+    value: XXX
     env_name: OPENAI_API_KEY
   azure_search_key:
     value: xxx

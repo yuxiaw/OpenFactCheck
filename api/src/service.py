@@ -28,7 +28,11 @@ class FactCheckService:
     def pipline_configuration(self):
         return list(self.pipeline.solver_pipeline.keys())
     
-    def pipline_configure(self, config):
+    def pipeline_configure_global(self, config):
+        self.pipeline.hot_reload_global_config({"global_config": config})
+        return self.pipline_configuration()
+    
+    def pipeline_configure_solvers(self, config):
         self.pipeline.hot_reload_solvers({"solvers": config}, only_update_solvers=True)
         return self.pipline_configuration()
 

@@ -1,5 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+from components.openai import openai_apikey
+from components.footer import footer
 
 from cmn.config import Config
 from api.service import FactCheckAPI
@@ -30,6 +32,10 @@ class App:
         st.markdown("<h1 style='text-align: center;'>OpenFactCheck Dashboard</h1>", unsafe_allow_html=True)
         st.markdown("<h5 style='text-align: center;'>An Open-source Factuality Evaluation Demo for LLMs</h3>", unsafe_allow_html=True)
 
+        # OpenAI API Key setup only if not set
+        default_key = config.get("openai-apikey")
+        openai_apikey(default_key)
+
         # Selection Menu
         selected = option_menu(None, ["Evaluate LLM Response", "Evaluate LLM", "Evaluate FactChecker", "Leaderboards", "About"], 
             icons=['card-checklist', 'check-square', "check2-all", "trophy", "info-circle"],
@@ -44,6 +50,11 @@ class App:
         except:
             st.error("The backend service is not running. Please start the backend service and refresh the page.")
             return
+        
+        # Check if OpenAI API Key is set
+        if "openai_apikey" not in st.session_state:
+            st.error("Please set the OpenAI API Key.")
+            return
 
         # Load the selected page
         if selected == "Evaluate LLM Response":
@@ -56,3 +67,8 @@ class App:
             leaderboards(factcheck_api)
         else:
             about(factcheck_api)
+
+        # # Footer
+        # footer([
+        # "Copyright © 2024 Mohamed Bin Zayed University of Artificial Intelligence",
+        # ])

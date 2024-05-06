@@ -1,7 +1,7 @@
 from core import *
 from argparse import Namespace
-from .utils.openai_api import gpt
-from .utils.prompt import CHECKWORTHY_PROMPT_BOOL, SPECIFY_CHECKWORTHY_CATEGORY_PROMPT
+from .fc_gpt_utils.openai_api import gpt
+from .fc_gpt_utils.prompt import CHECKWORTHY_PROMPT_BOOL, SPECIFY_CHECKWORTHY_CATEGORY_PROMPT
 
 
 @register_solver("checkworthiness_filter", "claims", "claims")

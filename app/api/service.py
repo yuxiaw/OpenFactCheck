@@ -24,8 +24,11 @@ class FactCheckAPI(API):
     def pipeline_configuration(self):
         return json.loads(self.get('/pipeline/configuration'))
     
-    def pipeline_configure(self, claim_processor: dict, retriever: dict, verifier: dict):
-        return json.loads(self.post('/pipeline/configure', json={**claim_processor, **retriever, **verifier}))
+    def pipeline_configure_solvers(self, claim_processor: dict, retriever: dict, verifier: dict):
+        return json.loads(self.post('/pipeline/configure/solvers', json={**claim_processor, **retriever, **verifier}))
+    
+    def pipeline_configure_global(self, config):
+        return json.loads(self.post('/pipeline/configure/global', json=config))
 
     def evaluate_response(self, text):
         return json.loads(self.post('/evaluate/response', json={'text': text}))

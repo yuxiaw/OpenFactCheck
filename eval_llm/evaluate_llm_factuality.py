@@ -676,6 +676,11 @@ def main():
             "factcheckgpt",
         ],
     )
+    parser.add_argument(
+        "--openai_apikey",
+        help="OpenAI API key",
+        default=os.environ.get("OPENAI_API_KEY", None),
+    )
     args = parser.parse_args()
 
     # pass by args
@@ -690,10 +695,12 @@ def main():
     )
     os.makedirs(projectdir, exist_ok=True)
     examples_dir = os.path.join(os.path.dirname(os.getcwd()), args.auto_checker_path)
+    configs_dir = os.path.join("/".join(examples_dir.split("/")[:-1]), "config")
     solver_args = Namespace(
         user_src=os.path.join(examples_dir, args.auto_checker),
-        config=os.path.join(examples_dir, "config", args.auto_checker_config),
+        config=os.path.join(configs_dir, args.auto_checker_config),
         output=os.path.join(projectdir, "truth"),
+        openai_apikey=args.openai_apikey,
     )
 
     # merge responses to test to df read from evaluate_llm_factuality_dataset.jsonl
@@ -725,16 +732,16 @@ def main():
             combined_result.append(results)
         elif dataset == "selfaware":
             results, labels, preds = selfaware_evaluation(
-                responses, intermediate_results_dir, response_column_name
+                responses[:50], intermediate_results_dir, response_column_name
             )
             combined_result.append(results)
         elif dataset == "freshqa":
             accuracy = fresh_evaluation(
-                responses, intermediate_results_dir, response_column_name
+                responses[:50], intermediate_results_dir, response_column_name
             )
             combined_result.append({"Accuracy": accuracy})
         else:
-            evaluate_free_text_by_factool(responses, response_column_name, args=solver_args, projectdir=projectdir)
+            evaluate_free_text_by_factool(responses[:50], response_column_name, args=solver_args, projectdir=projectdir)
 
             # read saved results and evaluate
             data = collect_data(projectdir, response_column_name)

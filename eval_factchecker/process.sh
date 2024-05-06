@@ -14,6 +14,12 @@ if [ -z "$user_id" ]; then
   exit 1
 fi
 
+# Check if the OPENAI_API_KEY environment variable is set
+if [ -z "$OPENAI_API_KEY" ]; then
+  echo "Please provide the OpenAI API key as the environment variable OPENAI_API_KEY"
+  exit
+fi
+
 
 # Create the folder structure for storing intermediate results and final report
 evaluation_root_path=../eval_results/factchecker/${user_id}

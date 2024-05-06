@@ -1,9 +1,9 @@
 from core import register_solver, StandardTaskSolver, FactCheckerState
 import nltk
 import spacy
-from .utils.openai_api import gpt
-from .utils.data_util import save_to_file
-from .utils.prompt import DOC_TO_INDEPEDENT_SENTENCES_PROMPT, SENTENCES_TO_CLAIMS_PROMPT, DOC_TO_SENTENCES_PROMPT
+from .fc_gpt_utils.openai_api import gpt
+from .fc_gpt_utils.data_util import save_to_file
+from .fc_gpt_utils.prompt import DOC_TO_INDEPEDENT_SENTENCES_PROMPT, SENTENCES_TO_CLAIMS_PROMPT, DOC_TO_SENTENCES_PROMPT
 from argparse import Namespace
 
 

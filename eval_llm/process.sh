@@ -18,6 +18,10 @@ if [ -z "$user_id" ]; then
   exit 1
 fi
 
+if [ -z "$OPENAI_API_KEY" ]; then
+  echo "Please provide the OpenAI API key as the environment variable OPENAI_API_KEY"
+  exit
+fi
 
 # Create the folder structure for storing intermediate results and final report
 evaluation_root_path=../eval_results/llm/${user_id}
@@ -28,7 +32,7 @@ report_path=${evaluation_root_path}/report/
 mkdir -p ${eval_result_path} ${analysis_result_path} ${report_path}
 
 #Step 1: Evaluate LLM responses
-python evaluate_llm_factuality.py --input_path ${uploaded_file} --eval_result_path ${eval_result_path}
+python evaluate_llm_factuality.py --input_path ${uploaded_file} --eval_result_path ${eval_result_path} --openai_apikey ${OPENAI_API_KEY}
 
 if [ $? -ne 0 ]; then
   echo "Failed to evaluate the LLM responses"
@@ -62,4 +66,3 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Evaluation completed successfully"
-

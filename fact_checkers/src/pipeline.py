@@ -16,6 +16,7 @@ class Pipeline:
         self.args = args
 
         user_src = getattr(self.args, 'user_src', None)
+        print("user_srcccccc", user_src)
         if user_src is not None:
             Pipeline.add_user_path(user_src)
 
@@ -34,6 +35,19 @@ class Pipeline:
         config_content = Pipeline.read_config_from_yaml(config_file_path)
 
         self.config, self.global_config = Pipeline.parse_config_from_dict(config_content)
+
+        self.solver_pipeline = self.init_pipeline(self.config)
+
+        print("Pipeline initialized")
+
+    def hot_reload_global_config(self, config):
+        parsed_global_config = Pipeline.parse_globalconfig_from_dict(config)
+        
+        # Update the provided keys only
+        for k, v in parsed_global_config.items():
+            self.global_config[k] = v
+            if k in os.environ:
+                os.environ[k] = v
 
         self.solver_pipeline = self.init_pipeline(self.config)
 
@@ -68,6 +82,20 @@ class Pipeline:
     @classmethod
     def list_available_solvers(cls):
         return SOLVER_REGISTRY
+    
+    @classmethod
+    def parse_globalconfig_from_dict(cls, config):
+        assert "global_config" in config, "Global config not found in the config file"
+        global_config = dict()
+        for k, v in config['global_config'].items():
+            if type(v) == dict:
+                if 'value' in v:
+                    global_config[k] = v['value']
+                    if 'env_name' in v:
+                        os.environ[v['env_name']] = v['value']
+            else:
+                global_config[k] = v
+        return global_config
 
     @classmethod
     def parse_config_from_dict(cls, config):

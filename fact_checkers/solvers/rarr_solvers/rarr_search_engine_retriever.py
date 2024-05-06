@@ -5,7 +5,7 @@ from core.task_solver import StandardTaskSolver
 from core import register_solver
 import random
 import string
-from .utils import search
+from .rarr_utils import search
 
 
 @register_solver("search_engine_retriever", "claims_with_questions", "claims_with_evidences")

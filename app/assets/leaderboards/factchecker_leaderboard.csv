@@ -1,1 +1,6 @@
 ID,Name,Email,Organization,FactChecker,Knowledge Source,F1,Accuracy,Precision,Recall
+e4b3996f2f3c49eba22a74ff9c1d8c14,Charlie White,charlie@xyz.com,XYZ Corp,FactCheckV1,Wikipedia,0.89,0.87,0.90,0.88
+1d8b62d8342b4fadb0f2a3e97b8e9a16,Jane Smith,jane@xyz.com,XYZ Corp,Veritas,OpenWeb,0.85,0.83,0.86,0.84
+7b9f4a2a1f1b492d9b65a2b2862c6f8a,John Doe,john@xyz.com,XYZ Corp,CheckMate,DataBank,0.78,0.76,0.79,0.77
+3cf8fb47fa0b4a8ebb0d3ffdeb3b58e9,Alice Johnson,alice@xyz.com,XYZ Corp,TrueSight,KnowledgeNet,0.92,0.91,0.93,0.94
+9ae1f93c25364c6eac3669fd25b59388,Bob Brown,bob@xyz.com,XYZ Corp,Authenticator,AcademicJournals,0.80,0.78,0.82,0.81

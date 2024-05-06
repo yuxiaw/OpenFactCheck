@@ -1,8 +1,8 @@
 from core import register_solver, StandardTaskSolver, FactCheckerState
 from typing import List, Dict, Any
 import json
-from .utils.chat_api import OpenAIChat
-from .utils.search_api import GoogleSerperAPIWrapper
+from .ftool_utils.chat_api import OpenAIChat
+from .ftool_utils.search_api import GoogleSerperAPIWrapper
 import yaml
 import os
 

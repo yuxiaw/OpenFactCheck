@@ -5,7 +5,7 @@ from core.task_solver import StandardTaskSolver
 from core import register_solver
 import random
 import string
-from .utils.hallucination import run_evidence_hallucination
+from .rarr_utils.hallucination import run_evidence_hallucination
 from .prompts.hallucination_prompts import EVIDENCE_HALLUCINATION
 
 

@@ -1,1 +1,6 @@
 ID,Name,Email,Organization,LLM Model,Factual Error Rate
+12d1abc861f24984a8f7f18f3465dff2,Charlie White,charlie@xyz.com,XYZ Corp,ChatGPT,0.05
+bc4f7b9e37fa496fa996468cdc9ba5f8,Jane Smith,jane@xyz.com,XYZ Corp,GPT-3,0.15
+9559c661670441aca2e288b30959f52a,John Doe,john@xyz.com,XYZ Corp,GPT4,0.2
+a83d6b36f0174ec28813698fb89ad3c9,Alice Johnson,alice@xyz.com,XYZ Corp,Transformer,0.2
+fa2b5f382f29459a93137c314b6a6387,Bob Brown,bob@xyz.com,XYZ Corp,BERT,0.25

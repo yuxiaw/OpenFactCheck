@@ -5,7 +5,7 @@ from core.task_solver import StandardTaskSolver
 from core import register_solver
 import random
 import string
-from .utils import agreement_gate, editor, evidence_selection
+from .rarr_utils import agreement_gate, editor, evidence_selection
 from .prompts import rarr_prompts
 import Levenshtein
 

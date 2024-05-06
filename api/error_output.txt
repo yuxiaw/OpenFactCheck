@@ -1,0 +1,5 @@
+```python
+["The UAE is a federation made up of eight emirates, which were united in 1971.",
+"The emirates are Abu Dhabi, Dubai, Sharjah, Ajman, Umm Al-Quwain, Fujairah, and Ras Al Khaimah.",
+"Abu Dhabi serves as the capital and is the largest emirate, while Dubai is internationally renowned for its high-rise buildings and vibrant business landscape."]
+```
