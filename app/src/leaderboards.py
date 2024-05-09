@@ -41,7 +41,7 @@ def update_llm_leaderboard():
         for id in in_progress_ids:
             # {"overall": 0.7441666666666666}
             report_path = f"../eval_results/llm/{id}/intermediate_results/overall_score.json"
-            print(report_path)
+
             if os.path.exists(report_path):
                 # Update the leaderboard
                 with open(report_path, "r") as file:

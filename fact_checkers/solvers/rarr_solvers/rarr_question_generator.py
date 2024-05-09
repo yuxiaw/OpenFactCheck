@@ -9,7 +9,7 @@ import os
 import time
 from typing import List
 import openai
-from .utils.question_generation import run_rarr_question_generation
+from .rarr_utils.question_generation import run_rarr_question_generation
 from .prompts import rarr_prompts
 
 

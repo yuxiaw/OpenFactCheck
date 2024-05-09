@@ -148,6 +148,9 @@ def execute_factool_solvers(args=solver_args, projectdir=projectdir):
     ###
     llm_response_data = read_llm_responses()
     p = Pipeline(args)
+
+    if "openai_apikey" in args:
+        p.hot_reload_global_config({"global_config": {"openai_key": {"value": args.openai_apikey, "env_name": "OPENAI_API_KEY"}}})
     
     for i in range(0, len(llm_response_data["prompt"])):
         prompt = llm_response_data["prompt"][i]
@@ -206,7 +209,11 @@ def evaluate_free_text_by_factool(llm_response_data, response_column_name,
     ###
     dataset_name = llm_response_data[0]['source']
     llm_response_data = pd.DataFrame(llm_response_data)
+
     p = Pipeline(args)
+
+    if "openai_apikey" in args:
+        p.hot_reload_global_config({"global_config": {"openai_key": {"value": args.openai_apikey, "env_name": "OPENAI_API_KEY"}}})
     
     for i in range(0, len(llm_response_data["prompt"])):
         prompt = llm_response_data["prompt"][i]

@@ -7,6 +7,7 @@
 GET {{host}}/health
 ###
 
+
 # Test Pipeline Configuration
 GET {{host}}/pipeline/configuration
 ###
@@ -27,8 +28,20 @@ GET {{host}}/pipeline/solver/retriever
 GET {{host}}/pipeline/solver/verifier
 ###
 
+# Configure Pipeline Global
+POST {{host}}/pipeline/configure/global
+Content-Type: application/json
+
+{
+  "openai_key": {
+    "value": "XXX",
+    "env_name": "OPENAI_API_KEY"
+  }
+}
+###
+
 # Prepare Pipeline
-POST {{host}}/pipeline/configure
+POST {{host}}/pipeline/configure/solvers
 Content-Type: application/json
 
 {

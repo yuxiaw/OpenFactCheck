@@ -1,11 +1,11 @@
 from core import *
 from argparse import Namespace
-from .utils.prompt import VERIFY_PROMPT
-from .utils.openai_api import gpt
+from .fc_gpt_utils.prompt import VERIFY_PROMPT
+from .fc_gpt_utils.openai_api import gpt
 from typing import List, Any, Dict
-from .utils.data_util import save_to_file
-from .utils.prompt import IDENTIFY_STANCE_PROMPT, IDENTIFY_STANCE_PROMPT_FUNC
-from .utils.nli import nli_infer
+from .fc_gpt_utils.data_util import save_to_file
+from .fc_gpt_utils.prompt import IDENTIFY_STANCE_PROMPT, IDENTIFY_STANCE_PROMPT_FUNC
+from .fc_gpt_utils.nli import nli_infer
 import pandas as pd
 import json
 

@@ -2,7 +2,7 @@ from core import register_solver, StandardTaskSolver, FactCheckerState
 import asyncio
 import nest_asyncio
 from factool import Factool
-from .utils.chat_api import OpenAIChat
+from .ftool_utils.chat_api import OpenAIChat
 import yaml
 import os
 from typing import List

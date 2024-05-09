@@ -1,7 +1,7 @@
 from core.fact_check_state import FactCheckerState
 from core.task_solver import StandardTaskSolver
 from core import register_solver
-from .utils.chat_api import OpenAIChat
+from .ftool_utils.chat_api import OpenAIChat
 import yaml
 import os
 import json

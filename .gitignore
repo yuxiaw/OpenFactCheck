@@ -1,3 +1,11 @@
+.DS_Store
+.vscode
+tmp/
+
+# Evaluation Results
+eval_results/
+output/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

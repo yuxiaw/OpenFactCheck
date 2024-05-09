@@ -64,10 +64,15 @@ def list_verifiers():
 
     return jsonify(verifiers)
 
-@app.route("/pipeline/configure", methods=['POST'])
-def prepare_pipeline():
+@app.route("/pipeline/configure/global", methods=['POST'])
+def configure_pipeline_global():
     config = request.json
-    return jsonify(factcheck_service.pipline_configure(config))
+    return jsonify(factcheck_service.pipeline_configure_global(config))
+
+@app.route("/pipeline/configure/solvers", methods=['POST'])
+def configure_pipeline_solvers():
+    config = request.json
+    return jsonify(factcheck_service.pipeline_configure_solvers(config))
 
 @app.route("/evaluate/response", methods=['POST'])
 def evaluate_response():

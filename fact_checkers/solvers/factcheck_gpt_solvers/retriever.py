@@ -1,6 +1,6 @@
 from core import *
 from argparse import Namespace
-from .utils.openai_api import gpt
+from .fc_gpt_utils.openai_api import gpt
 import spacy
 from sentence_transformers import CrossEncoder
 import spacy
@@ -16,8 +16,8 @@ import itertools
 from openai import RateLimitError
 import bs4
 from typing import List, Dict, Any
-from .utils.prompt import QGEN_PROMPT, QGEN_PROMPT_FMT
-from .utils.data_util import save_txt, save_json
+from .fc_gpt_utils.prompt import QGEN_PROMPT, QGEN_PROMPT_FMT
+from .fc_gpt_utils.data_util import save_txt, save_json
 import time
 
 

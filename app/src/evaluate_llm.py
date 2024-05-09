@@ -145,6 +145,9 @@ If the report is not available, please contact the administrator and provide you
                     # Append the data to the CSV file
                     save_leaderboard(data, "llm")
 
+        # Set api key and configure pipeline
+        factcheck_api.pipeline_configure_global({"openai_key": {"value": st.session_state.openai_apikey, "env_name": "OPENAI_API_KEY"}})
+
         # Evaluate the LLM
         _ = factcheck_api.evaluate_llm(st.session_state.id)
 
