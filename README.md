@@ -45,3 +45,13 @@ cd OpenFactChecking
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 ## Citation
+```
+@article{wang2024openfactcheck,
+      title={OpenFactCheck: A Unified Framework for Factuality Evaluation of LLMs}, 
+      author={Yuxia Wang and Minghan Wang and Hasan Iqbal and Georgi Georgiev and Jiahui Geng and Preslav Nakov},
+      year={2024},
+      eprint={2405.05583},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+```
