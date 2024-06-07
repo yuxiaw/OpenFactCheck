@@ -6,8 +6,8 @@ tmp/
 eval_results/
 output/
 exp/llm_eval_results/factool_eval_llm
-exp/FActScore
-notebook/factscore_eval.ipynb
+# exp/FActScore
+# notebook/factscore_eval.ipynb
 notebook/.ipynb_checkpoints
 
 
