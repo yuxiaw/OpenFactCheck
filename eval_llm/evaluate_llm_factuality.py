@@ -59,9 +59,8 @@ def eval_binary_classification(y_true, y_pred, pos_label="yes"):
     return metrics
 
 
-def get_dataset_model_response(df: pd.DataFrame, dataset):
+def get_dataset_model_response(df: pd.DataFrame, dataset, model = "testmodel_response"):
     content = df
-    model = "testmodel_response"
 
     # Better implementation:
     # responses = df.query("source == 'snowballing'")[['topic',model]]
